@@ -9,3 +9,4 @@ backend/workspace.xml
 /app.settings.json
 .env
 backend/auto_proforma
+.vscode
