@@ -1,0 +1,11 @@
+.env
+backend/shelf/
+backend/workspace.xml
+.DS_Store
+/httpRequests/
+/dataSources/
+/dataSources.local.xml
+*.xlsx
+/app.settings.json
+.env
+backend/auto_proforma
