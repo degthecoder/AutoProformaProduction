@@ -5,29 +5,18 @@ import (
 	"auto_proforma/src/lib/make_handle"
 	"auto_proforma/view/home"
 	"fmt"
-	"github.com/rs/cors"
 	"log"
 	"net/http"
 	"time"
 )
 
 func main() {
-	//fsAdmin := http.FileServer(http.Dir(app.Settings.HomeDir + "/assets/"))
-	//http.Handle("/assets/", http.StripPrefix("/assets/", fsAdmin))
-
 	http.HandleFunc("/getExcel", make_handle.MakeHandle(home.GetExcel))
-
-	corsHandler := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"}, // Allow frontend
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
-		AllowedHeaders:   []string{"Content-Type", "Authorization"},
-		AllowCredentials: true,
-	})
+	http.HandleFunc("/getTable", make_handle.MakeHandle(home.SendCodeTable))
 
 	srv := &http.Server{
-		Addr:         app.Settings.Host + ":" + app.Settings.Port,
-		ReadTimeout:  30 * time.Second,
-		Handler:      corsHandler,
+		Addr:        app.Settings.Host + ":" + app.Settings.Port,
+		ReadTimeout: 30 * time.Second,
 		WriteTimeout: 30 * time.Second,
 	}
 
