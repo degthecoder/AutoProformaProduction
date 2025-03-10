@@ -35,7 +35,8 @@ func GetSpecification(codes string) []Supap {
 			stok.INGISIM,
 			stok.CINSI,
 			stok.STOK_KODU,
-			spec.ORJINAL_KODU
+			spec.ORJINAL_KODU,
+			spec.URUN_GRUP_KODU
 		FROM
 			AA_STOK_1 AS stok
 		LEFT JOIN
@@ -54,7 +55,7 @@ func GetSpecification(codes string) []Supap {
 	var supaps []Supap
 	for rows.Next() {
 		var supap Supap
-		if err := rows.Scan(&supap.MakeModel, &supap.Type, &supap.SuparCode, &supap.OriginalCode); err != nil {
+		if err := rows.Scan(&supap.MakeModel, &supap.Type, &supap.SuparCode, &supap.OriginalCode, &supap.UrunGrupKodu); err != nil {
 			panic(err)
 		}
 		supaps = append(supaps, supap)
