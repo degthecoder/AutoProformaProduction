@@ -8,7 +8,7 @@ yarn-error.log*
 .pnpm-debug.log*
 .idea/
 .vscode/
-
+.env
 # ===== Backend =====
 /shelf/
 /workspace.xml
@@ -27,6 +27,7 @@ yarn-error.log*
 # ===== Frontend =====
 # Dependencies
 /node_modules
+frontend/node_modules
 /.pnp
 .pnp.*
 .yarn/*
