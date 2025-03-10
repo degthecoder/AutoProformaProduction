@@ -18,15 +18,6 @@ services:
       - backend
     networks:
       - app_network
-<<<<<<< HEAD
-    environment:
-      - NEXT_PUBLIC_API_URL=http://backend:8080
-
-
-networks:
-  app_network:
-    driver: bridge
-=======
     # Update the API URL to go through nginx.
     environment:
       - NEXT_PUBLIC_API_URL=http://nginx/api
@@ -46,4 +37,3 @@ networks:
 networks:
   app_network:
     driver: bridge
->>>>>>> dev
