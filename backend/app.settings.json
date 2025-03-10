@@ -1,0 +1,13 @@
+{
+  "HomeDir": "/Users/deg/Library/Mobile Documents/com~apple~CloudDocs/CompWork/Supar/supar_app/backend/",
+  "Domain": "http://localhost:5500",
+  "Host": "127.0.0.1",
+  "Port": "5500",
+
+  "DbHost": "192.168.0.225",
+  "DbPort": 1433,
+  "DbName": "Supar2025",
+  "DbUser": "Reader",
+  "DbPassword": "Reader25"
+}
+

@@ -1,13 +1,11 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --black: #0D1821;
+  --indigo: #344966;
+  --green: #70A288;
+  --white: #F9F9F9;
+  --rose: #CE796B;
 }
 
 html,
@@ -17,11 +15,26 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--white);
+  background: var(--black);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  background: var(--indigo);
+  color: var(--white);
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-style: bold;
+  margin: 20px;
+  transition-duration: 0.2s;
+}
+
+button:hover {
+  background: var(--rose);
 }
 
 * {
@@ -33,10 +46,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

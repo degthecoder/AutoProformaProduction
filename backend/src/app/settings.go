@@ -50,9 +50,7 @@ func ReadSettings() {
 	} else {
 		Settings.DbPort = 1433
 	}
-
-	fmt.Println("DB_HOST =", Settings.DbPort)
-	fmt.Println("DB_HOST =", Settings.DbHost)
+	fmt.Println("Settings read from .env file")
 }
 
 func oldReadSettings() {

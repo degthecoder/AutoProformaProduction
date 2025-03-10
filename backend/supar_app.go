@@ -3,9 +3,9 @@ package main
 import (
 	"auto_proforma/src/app"
 	"auto_proforma/src/lib/make_handle"
-	"auto_proforma/view/home"
+	"auto_proforma/src/path/home"
+	"auto_proforma/src/path/proforma"
 	"fmt"
-	"github.com/rs/cors"
 	"log"
 	"net/http"
 	"time"
@@ -14,20 +14,24 @@ import (
 func main() {
 	//fsAdmin := http.FileServer(http.Dir(app.Settings.HomeDir + "/assets/"))
 	//http.Handle("/assets/", http.StripPrefix("/assets/", fsAdmin))
-
 	http.HandleFunc("/getExcel", make_handle.MakeHandle(home.GetExcel))
+	http.HandleFunc("/getTable", make_handle.MakeHandle(home.SendCodeTable))
+	http.HandleFunc("/dev", make_handle.MakeHandle(proforma.SaveExcel))
+	http.HandleFunc("/getOEM", make_handle.MakeHandle(home.GetSuparCodeWithOEM))
 
-	corsHandler := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"}, // Allow frontend
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
-		AllowedHeaders:   []string{"Content-Type", "Authorization"},
-		AllowCredentials: true,
-	})
+	//corsHandler := cors.New(cors.Options{
+	//	AllowedOrigins:   []string{"http://localhost:3000"}, // Allow frontend
+	//	AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
+	//	AllowedHeaders:   []string{"Content-Type", "Authorization"},
+	//	AllowCredentials: true,
+	//})
+
+	//myCors := &MyCors{Cors: corsHandler}
 
 	srv := &http.Server{
-		Addr:         app.Settings.Host + ":" + app.Settings.Port,
-		ReadTimeout:  30 * time.Second,
-		Handler:      corsHandler,
+		Addr:        app.Settings.Host + ":" + app.Settings.Port,
+		ReadTimeout: 30 * time.Second,
+		//Handler:      myCors.corsWrapper(),
 		WriteTimeout: 30 * time.Second,
 	}
 
