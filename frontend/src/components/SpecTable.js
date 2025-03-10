@@ -11,15 +11,17 @@ export const  DataTable = ({ data }) => {
               <th>Model</th>
               <th>IN/EX</th>
               <th>OEM</th>
+              <th>UGK</th>
             </tr>
           </thead>
           <tbody>
-            {data.map((user) => (
-              <tr className={styles.table} key={user.suparCode}>
-                <td >{user.suparCode}</td>
-                <td >{user.makeModel}</td>
-                <td >{user.type}</td>
-                <td >{user.originalCode}</td>
+            {data.map((product) => (
+              <tr className={styles.table} key={product.suparCode}>
+                <td >{product.suparCode}</td>
+                <td >{product.makeModel}</td>
+                <td >{product.type}</td>
+                <td >{product.originalCode}</td>
+                <td> {product.urunGrupKodu}</td>
               </tr>
             ))}
           </tbody>
